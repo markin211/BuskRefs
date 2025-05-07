@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuskRefs</title>
+    <style>
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 160px;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 10px;
+            text-align: center;
+        }
+        .card-content h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: gray;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox:target {
+            display: flex;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="/style/mangá/mangá_cabeça.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Monomakh&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+
+         <nav>
+            <button class="hamburger" onclick="toggleMenu()">🚌</button>
+            <h1 class="logoname">BuskRefs</h1>
+            <form id="search-form" class="search-form" onsubmit="return handleSearch(event)">
+                <input type="text" id="search-input" placeholder="buskar">
+                <button type="submit">🚌car</button>
+            </form>
+            <button class="hamburger" onclick="toggleMenu()">🚌</button>
+         </nav>
+
+    </header>
+
+
+
+    <section>
+
+        <aside class="barra">
+
+            <div class="navegacao">
+                <ul>
+                    <li>
+                        <button class="hamburger" style="font-size: 20px;" onclick="toggleMenu()">🚌MENU</button>
+                    </li>
+                    <li class="list">
+                        <a href="/index.html">
+                            <span class="title">Home</span>
+                        </a>
+                        
+                    </li>
+                    <li class="list ">
+                        <a href="/sites/mangá/mangá.html">
+                            <span class="title">Mangá</span>
+                        </a>   
+                    </li>
+                    <li class="list active">
+                        <a href="/sites/manhwa/manhwa.html">
+                            <span class="title">manhwa</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/sites/Gestual/Gestual.html">
+                            <span class="title">Gestual</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="mangaprincipal">
+                <div class="manga">
+                    <h1>MANHWA</h1>
+                    <ul class="temalist">
+                        
+                        <li>
+                            <button class="hamburger" style="font-size: 20px;" onclick="toggleMenu()">🚌MENU</button>
+                        </li>
+                        <li class="listmanga ">
+                            <a href="/sites/manhwa/manhwa_corpo.html">
+                             <span class="partum">Corpo</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga branco">
+                            <a href="/sites/manhwa/manhwa_cabeça.html">
+                             <span class="partum">Cabeça</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga">
+                            <a href="/sites/manhwa/manhwa_outfit.html">
+                             <span class="partum">Outfit</span>
+                             </a>
+                        </li>
+
+                    </ul>
+                </div>     
+                        <article>
+                            <div class="desenhosmanga"> 
+                                
+
+
+                            </div>
+                            </article>
+                        </div>
+                                
+                    </main>
+            
+                </section>
+            
+                <footer>
+                    <a href="/sites/index.html">
+                        <p>®BUSCKREFS</p>
+                    </a>
+                </footer>
+                <script src="/javas/manga_cabeça.js"></script>
+                <script>
+                    function toggleMenu() {
+                        var barra = document.querySelector('.barra');
+                        barra.classList.toggle('open');
+                    }
+                    </script>
+<script>
+    function handleSearch(event) {
+        event.preventDefault(); // Impede o envio do formulário
+        const query = document.getElementById('search-input').value.toLowerCase(); // Obtém a consulta em minúsculas
+        const cards = document.querySelectorAll('.card'); // Seleciona todos os cartões
+
+        let found = false; // Flag para verificar se algo foi encontrado
+
+        cards.forEach(card => {
+            const altText = card.querySelector('img').alt.toLowerCase(); // Obtém o texto alternativo da imagem
+            if (altText.includes(query)) {
+                card.style.display = 'block'; // Mostra o cartão se corresponder à busca
+                found = true;
+            } else {
+                card.style.display = 'none'; // Esconde o cartão se não corresponder
+            }
+        });
+
+        if (!found) {
+            alert('Nenhum desenho encontrado para a busca: ' + query);
+        }
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleciona todas as lightboxes
+        const lightboxes = document.querySelectorAll('.lightbox');
+
+        lightboxes.forEach(lightbox => {
+            // Adiciona um evento de clique ao contêiner da lightbox
+            lightbox.addEventListener('click', (event) => {
+                // Verifica se o clique foi fora da imagem
+                if (event.target === lightbox) {
+                    // Fecha a lightbox
+                    window.location.hash = ''; // Remove o hash da URL
+                }
+            });
+        });
+    });
+</script>   
+            
+            </body>
+            </html>

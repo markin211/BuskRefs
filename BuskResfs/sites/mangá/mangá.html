@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuskRefs</title>
+    <style>
+        .listmanga:hover {
+            background-color: #f0f0f0; 
+        }
+    </style>
+    <link rel="stylesheet" href="/style/mangá/mangá.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Monomakh&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+
+         <nav>
+
+            <h1 class="logoname">BuskRefs</h1>
+            <form id="search-form" class="search-form" onsubmit="return handleSearch(event)">
+                <input type="text" id="search-input" placeholder="buskar">
+                <button type="submit">🚌car</button>
+            </form>
+            
+         </nav>
+
+    </header>
+
+
+
+    <section>
+
+        <aside class="barra">
+<br>
+            <div class="navegacao">
+                <ul>
+                    <li class="list">
+                        <a href="/index.html">
+                            <span class="title">Home</span>
+                        </a>
+                        
+                    </li>
+                    <li class="list active">
+                        <a href="/sites/mangá/mangá.html">
+                            <span class="title">Mangá</span>
+                        </a>   
+                    </li>
+                    <li class="list">
+                        <a href="/sites/manhwa/manhwa.html">
+                            <span class="title">manhwa</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/sites/Gestual/Gestual.html">
+                            <span class="title">Gestual</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="mangaprincipal">
+                <div class="manga">
+                    <h1>MANGÁ</h1>
+                    <ul class="temalist">
+
+                        <li class="listmanga">
+                            <a href="/sites/mangá/mangá_corpo.html">
+                             <span class="partum">Corpo</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga">
+                            <a href="/sites/mangá/mangá_cabeça.html">
+                             <span class="partum">Cabeça</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga">
+                            <a href="/sites/mangá/mangá_Outfit.html">
+                             <span class="partum">Outfit</span>
+                             </a>
+                        </li>
+
+                    </ul>
+                </div>     
+                        <article>
+                            <div class="desenhosmanga"> 
+                                <img src="/img/mangá/2ac18887483ca5af81a65d3428e4c548.jpg" alt="gojo">
+                                <img src="/img/mangá/8dd81be0b622a19f27dc13028c90efc4.jpg" alt="" >
+                                <img src="/img/mangá/9ce4616f95c810c055e5187ccba47db4.jpg" alt="" >
+                                <img src="/img/mangá/43c744515a4e2e3f0d61245874b0a30e.jpg" alt="" >
+                                <img src="/img/mangá/59a9e65429786f46b57d3de3a4979c65.jpg" alt="" >
+                                <img src="/img/mangá/62575010878c31357530a9d9ce35baa0.jpg" alt="" >
+                                <img src="/img/mangá/fceddbf1d88a6d584df327dd9692a244.jpg" alt="" >
+                            </div>
+                        </article>
+            </div>
+                    
+        </main>
+
+    </section>
+
+    <footer></footer>
+    <script>
+        function handleSearch(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            const query = document.getElementById('search-input').value.toLowerCase(); // Obtém a consulta em minúsculas
+            const cards = document.querySelectorAll('.card'); // Seleciona todos os cartões
+    
+            let found = false; // Flag para verificar se algo foi encontrado
+    
+            cards.forEach(card => {
+                const altText = card.querySelector('img').alt.toLowerCase(); // Obtém o texto alternativo da imagem
+                if (altText.includes(query)) {
+                    card.style.display = 'block'; // Mostra o cartão se corresponder à busca
+                    found = true;
+                } else {
+                    card.style.display = 'none'; // Esconde o cartão se não corresponder
+                }
+            });
+    
+            if (!found) {
+                alert('Nenhum desenho encontrado para a busca: ' + query);
+            }
+        }
+    </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleciona todas as lightboxes
+        const lightboxes = document.querySelectorAll('.lightbox');
+
+        lightboxes.forEach(lightbox => {
+            // Adiciona um evento de clique ao contêiner da lightbox
+            lightbox.addEventListener('click', (event) => {
+                // Verifica se o clique foi fora da imagem
+                if (event.target === lightbox) {
+                    // Fecha a lightbox
+                    window.location.hash = ''; // Remove o hash da URL
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

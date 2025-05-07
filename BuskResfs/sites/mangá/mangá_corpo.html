@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuskRefs</title>
+    <style>
+        /* ...existing styles... */
+        .listmanga:hover {
+            background-color: #f0f0f0; /* Altere para a cor desejada */
+        }
+    </style>
+    <link rel="stylesheet" href="/style/mangá/mangá_corpo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Monomakh&display=swap" rel="stylesheet">
+    <style>
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            align-items: flex-start;
+                
+            column-width: 250px; /* largura mínima por coluna */
+            column-gap: 1rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 160px;
+            transition: transform 0.2s;
+            cursor: pointer;
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 10px;
+            text-align: center;
+        }
+        .card-content h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: gray;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox:target {
+            display: flex;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+      
+</head>
+<body>
+
+    <header>
+
+         <nav>
+            <button class="hamburger" onclick="toggleMenu()">🚌</button>
+            <h1 class="logoname">BuskRefs</h1>
+            <form id="search-form" class="search-form" onsubmit="return handleSearch(event)">
+                <input type="text" id="search-input" placeholder="buskar">
+                <button type="submit">🚌car</button>
+            </form>
+            <button class="hamburger" onclick="toggleMenu()">🚌</button>
+         </nav>
+
+    </header>
+
+
+
+    <section>
+
+        <aside class="barra">
+
+            <div class="navegacao">
+                <ul>
+                    <li>
+                        <button class="hamburger" style="font-size: 20px;" onclick="toggleMenu()">🚌MENU</button>
+                    </li>
+                    <li class="list">
+                        <a href="/index.html">
+                            <span class="title">Home</span>
+                        </a>
+                        
+                    </li>
+                    <li class="list active">
+                        <a href="/sites/mangá/mangá.html">
+                            <span class="title">Mangá</span>
+                        </a>   
+                    </li>
+                    <li class="list">
+                        <a href="/sites/manhwa/manhwa.html">
+                            <span class="title">manhwa</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="/sites/Gestual/Gestual.html">
+                            <span class="title">Gestual</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main>
+            <div class="mangaprincipal">
+                <div class="manga">
+                    <h1>MANGÁ</h1>
+                    <ul class="temalist">
+                        <li>
+                            <button class="hamburger" style="font-size: 20px;" onclick="toggleMenu()">🚌MENU</button>
+                        </li>
+
+                        <li class="listmanga branco">
+                            <a href="/sites/mangá/mangá_corpo.html">
+                             <span class="partum">Corpo</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga">
+                            <a href="/sites/mangá/mangá_cabeça.html">
+                             <span class="partum">Cabeça</span>
+                             </a>
+                        </li>
+
+                        <li class="listmanga">
+                            <a href="/sites/mangá/mangá_Outfit.html">
+                             <span class="partum">Outfit</span>
+                             </a>
+                        </li>
+
+                    </ul>
+                </div>     
+                        <article>
+                            <div class="desenhosmanga"> 
+                                
+                                <div class="container">
+
+                                    <div class="card">
+                                        <a href="#img7760">
+                                        <img src="/img/imgs_mangá_corpo/3f65d70d52604b185f694974b2fc3796.jpg" alt="Wallpaper gogeta">
+                                        </a>
+                                        </div>
+                                    <div class="card">
+                                        <a href="#img5357">
+                                        <img src="/img/imgs_mangá_corpo/2a9dc1f242b94830f63af9dc2667a476.jpg" alt="Wallpaper dragonball goku vs vegeta">
+                                        </a>
+                                        </div>
+                                    <div class="card">
+                                        <a href="#img336">
+                                        <img src="/img/imgs_mangá_corpo/39ef2ba65047e22f3a1d9ebee3301861.jpg" alt="Kratos pindurado">
+                                        </a>
+                                        </div>
+                                    
+                                        <div class="card">
+                                            <a href="#img7585">
+                                            <img src="/img/imgs_mangá_corpo/5d39a09033aec3bc46b8dc334fb8817f.jpg" alt="Goku ssj3">
+                                            </a>
+                                            </div>  
+                                            <div class="card">
+                                                <a href="#img8234">
+                                                <img src="/img/imgs_mangá_corpo/ce4539ad8cee0eb482e6b32ee1246b0f.jpg" alt="Wallpaper goku">
+                                                </a>
+                                                </div>
+                                                <div class="card">
+                                                    <a href="#img4187">
+                                                    <img src="/img/imgs_mangá_corpo/481643b314c22a4a7ad93dc961b30724.jpg" alt="Wallpaper goku ultra instinct">
+                                                    </a>
+                                                    </div>
+                                                    <div class="card">
+                                                        <a href="#img421">
+                                                        <img src="/img/imgs_mangá_corpo/e6664cd7537211aeb936bee038f563b4.jpg" alt="Wallpaper goku">
+                                                        </a>
+                                                        </div>
+                                                        <div class="card">
+                                                            <a href="#img7968">
+                                                            <img src="/img/imgs_mangá_corpo/6e722249919cd5b8968336f3c32870a5.jpg" alt="Wallpaper blue lock">
+                                                            </a>
+                                                            </div>
+                                                            <div class="card">
+                                                                <a href="#img6656">
+                                                                <img src="/img/imgs_mangá_corpo/3235ad226b759e48a7f578bbde8090e2.jpg" alt="Vegeta">
+                                                                </a>
+                                                                </div>
+                                                                <div class="card">
+                                                                    <a href="#img3283">
+                                                                    <img src="/img/imgs_mangá_corpo/c2e7ca10d6a37f910a0cb27287c1d3a6.jpg" alt="Wallpaper darkfantasy">
+                                                                    </a>
+                                                                    </div>
+                                                                    <div class="card">
+                                                                        <a href="#img8674">
+                                                                        <img src="/img/imgs_mangá_corpo/579a443fb620bb32f174a4450475dad5.jpg" alt="Wallpaper gojo">
+                                                                        </a>
+                                                                        </div>
+                                                                        <div class="card">
+                                                                            <a href="#img4502">
+                                                                            <img src="/img/imgs_mangá_corpo/a051a946ca9fe5b116a1a7703e23ce06.jpg" alt="Wallpaper zoro">
+                                                                            </a>
+                                                                            </div>
+
+                                                                            <div class="card">
+                                                                                <a href="#img6215">
+                                                                                <img src="/img/imgs_mangá_corpo/2a9206dea623c924acc6fe7d34c17f9b.jpg" alt="esboço">
+                                                                                </a>
+                                                                                </div>
+
+                                                                                <div class="card">
+                                                                                    <a href="#img81">
+                                                                                    <img src="/img/imgs_mangá_corpo/4a7e41e60c087870dd66c640c12c580b.jpg" alt="Android Número 18">
+                                                                                    </a>
+                                                                                    </div>
+
+                                                                                    <div class="card">
+                                                                                        <a href="#img3602">
+                                                                                        <img src="/img/imgs_mangá_corpo/7e11bf61236e2d2e0975bab8442f04ac.jpg" alt="satoru gojo">
+                                                                                        </a>
+                                                                                        </div>
+                                                                                        <div class="card">
+                                                                                            <a href="#img1162">
+                                                                                            <img src="/img/imgs_mangá_corpo/14cad6ad302f9c8ea88b862da6759342.jpg" alt="Android Número 18">
+                                                                                            </a>
+                                                                                            </div>
+
+                                                                                            <div class="card">
+                                                                                                <a href="#img734">
+                                                                                                <img src="/img/imgs_mangá_corpo/20f80df88a87ad761d3371c56db9dc9f.jpg" alt="goku black">
+                                                                                                </a>
+                                                                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+
+
+
+
+                         
+
+                                <div id="img734" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/20f80df88a87ad761d3371c56db9dc9f.jpg" alt="goku black">
+                                    </div>
+
+                                <div id="img1162" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/14cad6ad302f9c8ea88b862da6759342.jpg" alt="Android Número 18">
+                                    </div>
+
+                                <div id="img3602" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/7e11bf61236e2d2e0975bab8442f04ac.jpg" alt="satoru gojo">
+                                    </div>
+
+
+                                <div id="img81" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/4a7e41e60c087870dd66c640c12c580b.jpg" alt="Android Número 18">
+                                    </div>
+
+
+                                <div id="img6215" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/2a9206dea623c924acc6fe7d34c17f9b.jpg" alt="esboço">
+                                    </div>
+                                <div id="img4502" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/a051a946ca9fe5b116a1a7703e23ce06.jpg" alt="Wallpaper zoro">
+                                    </div>
+                                <div id="img8674" class="lightbox">
+                                <a href="#" class="close">&times;</a>
+                                <img src="/img/imgs_mangá_corpo/579a443fb620bb32f174a4450475dad5.jpg" alt="Wallpaper gojo">
+                                </div>
+                                <div id="img3283" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/c2e7ca10d6a37f910a0cb27287c1d3a6.jpg" alt="Wallpaper darkfantasy">
+                                    </div>  
+                                <div id="img6656" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/3235ad226b759e48a7f578bbde8090e2.jpg" alt="Vegeta">
+                                    </div>
+                                <div id="img7968" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/6e722249919cd5b8968336f3c32870a5.jpg" alt="Wallpaper blue lock">
+                                    </div>
+                                <div id="img421" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/e6664cd7537211aeb936bee038f563b4.jpg" alt="Wallpaper goku">
+                                    </div>
+                                <div id="img4187" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/481643b314c22a4a7ad93dc961b30724.jpg" alt="Wallpaper goku ultra instinct">
+                                    </div>
+                                <div id="img8234" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/ce4539ad8cee0eb482e6b32ee1246b0f.jpg" alt="Wallpaper goku">
+                                    </div>
+                                    <div id="img7760" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/3f65d70d52604b185f694974b2fc3796.jpg" alt="Wallpaper gogeta">
+                                    </div>
+                                <div id="img336" class="lightbox">
+                                    <a href="#" class="close">&times;</a>
+                                    <img src="/img/imgs_mangá_corpo/39ef2ba65047e22f3a1d9ebee3301861.jpg" alt="Kratos pindurado">
+                                    </div>
+
+
+                                    <div id="img7585" class="lightbox">
+                                        <a href="#" class="close">&times;</a>
+                                        <img src="/img/imgs_mangá_corpo/5d39a09033aec3bc46b8dc334fb8817f.jpg" alt="Goku ssj3">
+                                        </div>
+                                 
+                                        <div id="img5357" class="lightbox">
+                                            <a href="#" class="close">&times;</a>
+                                            <img src="/img/imgs_mangá_corpo/2a9dc1f242b94830f63af9dc2667a476.jpg" alt="Wallpaper dragonball goku vs vegeta">
+                                            </div>
+
+
+
+                            </div>
+                        </article>
+            </div>
+                    
+        </main>
+
+    </section>
+
+    <footer></footer>
+    <script src="/javas/manga_cabeça.js"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.barra');
+            nav.classList.toggle('open');
+        }
+    </script>
+<script>
+    function handleSearch(event) {
+        event.preventDefault(); // Impede o envio do formulário
+        const query = document.getElementById('search-input').value.toLowerCase(); // Obtém a consulta em minúsculas
+        const cards = document.querySelectorAll('.card'); // Seleciona todos os cartões
+
+        let found = false; // Flag para verificar se algo foi encontrado
+
+        cards.forEach(card => {
+            const altText = card.querySelector('img').alt.toLowerCase(); // Obtém o texto alternativo da imagem
+            if (altText.includes(query)) {
+                card.style.display = 'block'; // Mostra o cartão se corresponder à busca
+                found = true;
+            } else {
+                card.style.display = 'none'; // Esconde o cartão se não corresponder
+            }
+        });
+
+        if (!found) {
+            alert('Nenhum desenho encontrado para a busca: ' + query);
+        }
+    }
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Seleciona todas as lightboxes
+        const lightboxes = document.querySelectorAll('.lightbox');
+
+        lightboxes.forEach(lightbox => {
+            // Adiciona um evento de clique ao contêiner da lightbox
+            lightbox.addEventListener('click', (event) => {
+                // Verifica se o clique foi fora da imagem
+                if (event.target === lightbox) {
+                    // Fecha a lightbox
+                    window.location.hash = ''; // Remove o hash da URL
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
